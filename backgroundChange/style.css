@@ -1,0 +1,73 @@
+@import url(https://fonts/googleapis.com/css?family=Biryani:700);
+
+:root {
+  --bgcolor: black;
+  --color: white;
+}
+
+*, *::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif, biryani;
+  text-align: center;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  background-color: var(--bgcolor);
+  transition: background-color 0.5s;
+}
+
+#hex, #rgb {
+  font-size: 3rem;
+  color: var(--color);
+  padding: 1rem 2rem 1rem;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+#hex:hover,
+#rgb:hover {
+  background-color: var(--color);
+  color: var(--bgcolor);
+  cursor: copy;
+  transition: background-color 0s, .5s;
+}
+
+#hex.copied::after,
+#rgb.copied::after {
+  content: 'copied!';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  color: var(--bgcolor);
+  background-color: white;
+  padding: inherit;
+  animation: copy 1.5s forwards;
+}
+
+@keyframes copy {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transition: translateX(0);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
